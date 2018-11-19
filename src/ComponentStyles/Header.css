@@ -1,0 +1,113 @@
+@font-face{
+    font-family: "NetflixSans";
+    src: url('../fonts/NetflixSans.woff2')
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "NetflixSans";
+    background: black;
+}
+.navbar{
+    display: grid;
+    background-image: url("https://occ-0-3451-3446.1.nflxso.net/art/a78dc/ca38b681a20ec8b6afd8b6cd541cd74bbdba78dc.webp");
+    background-position: center;
+    background-size: cover;
+    grid-template-rows: 80px 730px; 
+}
+nav h2{
+    text-align: center;
+    margin: 35px auto;
+    padding: 0;
+    color: hotpink;
+}
+nav{
+    display: grid;
+    grid-row: 1;
+    grid-template-columns: 200px 2fr 1fr;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.firstUl{
+    grid-column: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.firstUl li{
+    font-size: 15px;
+    margin-right: 25px;
+    color: rgba(255,255,255,0.8);
+}
+ul.secondUl{
+    grid-column: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.secondUl li{
+    margin-right: 25px;
+    color: rgba(255,255,255,0.8);
+}
+.secondUl li:nth-child(1){
+    color: white;
+    font-size: 20px;
+} 
+.secondUl li:nth-child(4){
+    color: white;
+    font-size: 20px;
+} 
+.film-advertising{
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.intro h2{
+    padding: 0;
+    margin: 0;
+    line-height:15px;
+    font-size: 35px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    color: rgba(250,250,255, 0.7);
+}
+.intro h1{
+    padding: 0;
+    margin: 0;
+    color: rgba(250,250,210,0.7);
+}
+.intro h1:nth-child(2){
+    font-size: 70px;
+}
+.intro h1:nth-child(3){
+    font-size: 110px;
+    letter-spacing: 5px;
+}
+.intro button{
+    background-color: rgba(1,1,1,0.1);
+    border: none;
+    margin-right: 20px;
+    width: 135px;
+    height: 30px;
+    color: white;
+    font-size: 17px;
+}
+li a{
+    color:rgba(250,250,210,0.7);
+}
+li a:hover{
+    color: hotpink;
+}
+#searchTheMovie{
+    display: none;
+}

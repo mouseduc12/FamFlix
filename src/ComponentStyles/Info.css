@@ -1,0 +1,67 @@
+.playing{
+    display: grid;
+    grid-template-rows: 40px 200px 40px 200px 40px 200px 60px;
+    color:rgba(255,255,255,0.8);
+}
+
+.firstRow{
+    grid-row: 2;
+    margin-left: 50px; 
+    display: grid;
+    grid-template-rows: auto auto;
+    overflow-x: auto;
+}
+.playing p{
+    margin-left: 50px;
+    padding:0;
+}
+.secondRow{
+    grid-row: 4;
+    margin-left: 50px; 
+    display: grid;
+    grid-template-rows: auto auto;
+    overflow-x: auto;
+}
+.thirdRow{
+    grid-row: 6; 
+    margin-left: 50px;
+    display: grid;
+    grid-template-rows: auto auto;
+    overflow-x: auto;
+}
+.trendingNow{
+    grid-row: 2; 
+    display: flex; 
+    flex-direction: row;
+    height: 150px;
+    min-width: 200px;
+}
+.img{ 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img button{
+    background-color: rgba(1,1,1,0.2);
+    color: rgba(255,255,255,0.7);
+    border: none;
+    font-size: 25px;
+}
+.img button:hover{
+    color: rgba(255,255,255,1);
+    cursor: pointer;
+}
+.img:hover{
+    transform: scale(1.5);
+    background-size: contain;
+    cursor: pointer;
+}
+  .modal{
+    background: black;
+    color: white;
+    height: 800px;
+}
