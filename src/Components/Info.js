@@ -2,8 +2,11 @@ import React from 'react';
 import "../ComponentStyles/Info.css";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import Movie from "./Movie";
 import Modal from 'react-modal';
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(faPlayCircle);
 
 class Info extends React.Component {
     constructor(props) {
@@ -66,7 +69,7 @@ class Info extends React.Component {
                     <div className="trendingNow">
                         {onlyTenHighRatingMovies.map(each => {
                             return <div style={{ backgroundImage: `url(${each.ImageURL})` }} className="img">
-                                <button value={each.imdb_id} onClick ={this.getMovie}><FontAwesomeIcon icon="play"/></button>
+                                <button value={each.imdb_id} onClick ={this.getMovie}>*</button>
                             </div>
                             
                         })}
@@ -75,13 +78,13 @@ class Info extends React.Component {
                 <p>Just Released:</p>
                 <div className="secondRow">
                     <div className="trendingNow">
-                        {onlyTenNewMovies.map(eachObj => <div style={{ backgroundImage: `url(${eachObj.ImageURL})` }} className="img"><button value={eachObj.imdb_id} onClick ={this.getMovie}><FontAwesomeIcon icon="play" /></button></div>)}
+                        {onlyTenNewMovies.map(eachObj => <div style={{ backgroundImage: `url(${eachObj.ImageURL})` }} className="img"><button value={eachObj.imdb_id} onClick ={this.getMovie}> * </button></div>)}
                     </div>
                 </div>
                 <p>Trending Now:</p>
                 <div className="thirdRow">
                     <div className="trendingNow">
-                        {onlyTenMovies.map(movie => <div style={{ backgroundImage: `url(${movie.ImageURL})` }} className="img"><button value={movie.imdb_id} onClick ={this.getMovie}><FontAwesomeIcon icon="play" /></button></div>)}
+                        {onlyTenMovies.map(movie => <div style={{ backgroundImage: `url(${movie.ImageURL})` }} className="img"><button value={movie.imdb_id} onClick ={this.getMovie}> * </button></div>)}
                     </div>
                 </div>
             </div>

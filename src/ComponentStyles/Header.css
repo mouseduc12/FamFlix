@@ -41,6 +41,7 @@ ul.firstUl{
     font-size: 15px;
     margin-right: 25px;
     color: rgba(255,255,255,0.8);
+    font-weight: bold;
 }
 ul.secondUl{
     grid-column: 3;
@@ -110,4 +111,11 @@ li a:hover{
 }
 #searchTheMovie{
     display: none;
+}
+.text{
+    border-radius: 12px;
+    border: 1px solid darkcyan;
+    margin-right: 12px;
+    font-size: 17px;
+    padding: 0 10px;
 }
