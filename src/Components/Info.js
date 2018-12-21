@@ -1,10 +1,8 @@
 import React from 'react';
 import "../ComponentStyles/Info.css";
 import axios from "axios";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import Movie from "./Movie";
-import Modal from 'react-modal';
 import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(faPlayCircle);
 
@@ -24,7 +22,6 @@ class Info extends React.Component {
         const url = 'https://hydramovies.com/api-v2/?source=https://hydramovies.com/api-v2/current-Movie-Data.csv';
         const forwarder = 'https://vschool-cors.herokuapp.com?url='
         axios.get(forwarder + url).then(res => {
-            console.log(res.data);
             const movies = res.data;
             this.setState({ movies }, () => {
                 this.sortMoviesByRating(this.state.movies)

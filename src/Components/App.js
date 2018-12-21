@@ -3,12 +3,12 @@ import Header from "./Header"
 import axios from "axios"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faCoffee, faBars, fas } from '@fortawesome/free-solid-svg-icons'
 import Info from "./Info"
 import Footer from "./Footer"
 import Search from "./Search"
 import { Route, Switch } from "react-router-dom";
-library.add(fab, faCheckSquare, faCoffee);
+library.add(fab, faCheckSquare, faCoffee, faBars, fas);
 
 
 class App extends React.Component {
@@ -20,12 +20,38 @@ class App extends React.Component {
       data: {},
       modalIsOpen: false,
       searchData: [],
-      id: ""
+      id: "",
+      width: 0,
+      alreadySetWidth: false
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize())
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize)
+  }
+
+  handleResize = () => {
+    console.log(window.innerWidth)
+    if (window.innerWidth <= 769 && !this.state.alreadySetWidth) {
+      console.log(window.innerWidth)
+      this.setState({
+        width: window.innerWidth,
+        alreadySetWidth: true
+      })
+    }
+    else if(window.innerWidth > 800) {
+      this.setState({
+        width: 0,
+        alreadySetWidth: false
+      })
     }
   }
 
   getMovie = (id) => {
-    console.log(id)
     this.setState({
       modalIsOpen: true,
       id: id
@@ -52,10 +78,10 @@ class App extends React.Component {
       alert("cannot be over 4 digits")
     } else if (parseInt(this.state.text) > 2018) {
       alert(`It's not ${this.state.text} yet`)
-    } else if(parseInt(this.state.text) < 2000){
+    } else if (parseInt(this.state.text) < 2000) {
       alert("API DID NOT PROVID UNDER 2000")
     }
-    if(this.state.searchData.length > 1){
+    if (this.state.searchData.length > 1) {
       this.setState({
         searchData: []
       })
@@ -64,9 +90,7 @@ class App extends React.Component {
     const forwarder = "https://vschool-cors.herokuapp.com?url=";
     const url = `https://hydramovies.com/api-v2/?source=http://hydramovies.com/api-v2/current-Movie-Data.csv&movie_year=${this.state.text}`;
     axios.get(forwarder + url).then(res => {
-      console.log(res)
       let newData = res.data;
-      console.log(newData)
       for (let each in newData) {
         this.setState(prevState => {
           return {
@@ -80,26 +104,26 @@ class App extends React.Component {
 
   render() {
     const search = this.state.searchData.filter(each => each.imdb_id === this.state.id)
-    console.log(search);
     return (
       <div>
         <Header
           toggle={this.state.toggle}
           text={this.state.text}
           data={this.state.data}
+          width={this.state.width}
           handleToggle={this.handleToggle}
           handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange} 
-          searchData = {this.state.searchData}/>
+          handleChange={this.handleChange}
+          searchData={this.state.searchData} />
         <Switch>
           <Route exact path="/" component={Info} />
           <Route path="/search" render={props =>
             <Search getMovie={this.getMovie}
-              searchData={this.state.searchData} 
-              modalIsOpen = {this.state.modalIsOpen}
-              closeModal = {this.closeModal}
-              search = {search}
-              />
+              searchData={this.state.searchData}
+              modalIsOpen={this.state.modalIsOpen}
+              closeModal={this.closeModal}
+              search={search}
+            />
           } />
         </Switch>
         <Footer />

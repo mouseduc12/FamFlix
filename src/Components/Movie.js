@@ -4,7 +4,6 @@ import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Movie = (props) => {
-    console.log(props.id)
     const { onlyTenMovies, onlyTenNewMovies, onlyTenHighRatingMovies, id } = props
     const thisMovie = onlyTenHighRatingMovies.filter(each => each.imdb_id === id)
     const thisOnlyTenNewMovies = onlyTenNewMovies.filter(each => each.imdb_id === id)
