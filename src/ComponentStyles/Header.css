@@ -222,6 +222,12 @@ li a:hover{
         height: 300px;
         background-repeat: no-repeat;
     }
+    .text{
+        width: 80px;
+        font-size: 13px;
+        margin-right: 5px;
+        padding: 0 10px;
+    }
     nav{
         grid-template-columns: 1fr 1fr 1fr
     }
@@ -260,6 +266,12 @@ li a:hover{
         background-size: cover;
         height: 200px;
         background-repeat: no-repeat;
+    }
+    .text{
+        width: 80px;
+        font-size: 13px;
+        margin-right: 5px;
+        padding: 0 10px;
     }
     nav{
         grid-template-columns: 1fr 1fr 1fr;

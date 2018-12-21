@@ -1,7 +1,7 @@
 import React from "react"
 import "../ComponentStyles/Movie.css"
 import Modal from 'react-modal';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const Movie = (props) => {
     const { onlyTenMovies, onlyTenNewMovies, onlyTenHighRatingMovies, id } = props

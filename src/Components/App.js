@@ -7,7 +7,7 @@ import { faCheckSquare, faCoffee, faBars, fas } from '@fortawesome/free-solid-sv
 import Info from "./Info"
 import Footer from "./Footer"
 import Search from "./Search"
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 library.add(fab, faCheckSquare, faCoffee, faBars, fas);
 
 
@@ -80,7 +80,7 @@ class App extends React.Component {
     } else if (parseInt(this.state.text) > 2018) {
       alert(`It's not ${this.state.text} yet`)
     } else if (parseInt(this.state.text) < 2000) {
-      alert("API DID NOT PROVID UNDER 2000")
+      alert("API DOES NOT PROVIDE UNDER 2000")
     }
     if (this.state.searchData.length > 1) {
       this.setState({
@@ -98,7 +98,7 @@ class App extends React.Component {
             searchData: [...prevState.searchData, newData[each]],
             text: "",
           }
-        })
+        }, () => this.props.history.push("/search"))
       }
     })
   }
@@ -135,4 +135,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);

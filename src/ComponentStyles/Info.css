@@ -99,6 +99,7 @@
     }
     .playing p{
         margin: auto 0;
+        font-size: 14px;
     }
     .trendingNow{
         min-width: 150px;
@@ -137,6 +138,7 @@
     }
     .playing p{
         margin: auto 0;
+        font-size:12px;
     }
    .firstRow{
        margin-left: 0
