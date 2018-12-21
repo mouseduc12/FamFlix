@@ -1,4 +1,7 @@
+UPDATED: Finished responsive
+
 First Personnal API: FIRST UPPDATED
+
 Have search button to search the movie year and display it in search(API did not provide to get data by title). 
 Bug with unclickable arrows so already remove it.
 Will update the responsive website soon... 
