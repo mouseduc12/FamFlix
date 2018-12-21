@@ -31,7 +31,7 @@ class Header extends React.Component {
     handleWindow = () =>{
         if(window.scrollY > 10){
             this.setState({
-                color: "rgba(250,250,210,0.2)",
+                color: "rgba(1,1,1,1)",
                 fixed: "fixed"
             })
         } else {
@@ -46,7 +46,7 @@ class Header extends React.Component {
         return (
             <div className="navbar">
                 <nav style ={{background: this.state.color, position: this.state.fixed, width: "100%"}}>
-                    <h2>FAMFLIX</h2>
+                    <h2><Link to ="/" style ={{color: "hotPink"}}>FAMFLIX</Link></h2>
                     <ul className="firstUl">
                         <li><Link to="/">Home</Link></li>
                         <li><a href="#firstRow">Movies</a></li>
