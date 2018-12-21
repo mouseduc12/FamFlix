@@ -260,7 +260,7 @@ li a:hover{
 } 
 
 
-@media (min-width: 320px) and (max-width: 424px){
+@media (max-width: 424px){
     .navbar{
         grid-template-rows: 80px auto; 
         background-size: cover;
