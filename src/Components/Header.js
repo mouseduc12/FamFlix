@@ -18,7 +18,8 @@ class Header extends React.Component {
         super(props);
         this.state = {
             color: "",
-            fixed: ""
+            fixed: "",
+            isChecked: false
         }
     }
     componentDidMount() {
@@ -42,17 +43,27 @@ class Header extends React.Component {
         }
     }
 
+    handleClick = () => {
+        this.setState(prevState => ({
+            isChecked: !prevState.isChecked,
+        })
+        )
+    }
+
     render() {
         return (
             <div className="navbar">
                 <nav style={{ background: this.state.color, position: this.state.fixed, width: "100%" }}>
-                    {this.props.width && <p className="display-bars"><FontAwesomeIcon icon="bars" className="responsive" /></p>}
+                    {this.props.width && <p
+                        className="display-bars"
+                        onClick={this.handleClick}><FontAwesomeIcon icon="bars" className="responsive" />
+                    </p>}
+
                     <h2><Link to="/" style={{ color: "hotPink" }}>FAMFLIX</Link></h2>
                     {!this.props.width &&
                         <ul className="firstUl">
                             <li><Link to="/">Home</Link></li>
                             <li><a href="#firstRow">Movies</a></li>
-                            <li>Recently Added</li>
                             <li> <Link style={{ color: this.props.searchData.length > 1 ? "hotPink" : "rgba(255,255,255,1)" }} to="/search">My Search</Link></li>
                         </ul>
                     }
@@ -80,6 +91,16 @@ class Header extends React.Component {
                             </Fragment>
                         }
                     </ul>
+                    {this.props.width &&
+                        <Fragment>
+                            {this.state.isChecked &&
+                                <ul className="is-checked">
+                                    <li><Link to="/" style ={{color: "white"}}>Home</Link></li>
+                                    <li><Link style={{ color: this.props.searchData.length > 1 ? "hotPink" : "rgba(255,255,255,1)" }} to="/search">My Search</Link></li>
+                                </ul>
+                            }
+                        </Fragment>
+                    }
                 </nav>
                 <div className="film-advertising">
                     <div className="intro">

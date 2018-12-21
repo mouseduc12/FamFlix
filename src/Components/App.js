@@ -21,13 +21,14 @@ class App extends React.Component {
       modalIsOpen: false,
       searchData: [],
       id: "",
-      width: 0,
+      width: "",
       alreadySetWidth: false
     }
   }
 
   componentDidMount() {
-    window.addEventListener("resize", this.handleResize())
+    window.addEventListener("resize", this.handleResize)
+    this.handleResize()
   }
 
   componentWillUnmount() {
@@ -36,16 +37,16 @@ class App extends React.Component {
 
   handleResize = () => {
     console.log(window.innerWidth)
-    if (window.innerWidth <= 769 && !this.state.alreadySetWidth) {
+    if (window.innerWidth <= 790 && !this.state.alreadySetWidth) {
       console.log(window.innerWidth)
       this.setState({
         width: window.innerWidth,
         alreadySetWidth: true
       })
     }
-    else if(window.innerWidth > 800) {
+    else if(window.innerWidth > 791) {
       this.setState({
-        width: 0,
+        width: "",
         alreadySetWidth: false
       })
     }
@@ -123,6 +124,7 @@ class App extends React.Component {
               modalIsOpen={this.state.modalIsOpen}
               closeModal={this.closeModal}
               search={search}
+              {...props}
             />
           } />
         </Switch>
